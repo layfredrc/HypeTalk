@@ -14,7 +14,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(session({ secret: 'grehjznejzkhgjrez', saveUninitialized: false, resave: false, credential: 'same-origin', cookie: { secure: false, maxAge: 90000 } }))
+app.use(session({ secret: 'grehjznejzkhgjrez', saveUninitialized: false, resave: false, credential: 'same-origin', cookie: { secure: false, maxAge: 9999999 } }))
 // on joint le dossier dist lorsque l'on aura mit notre application en mode production
 app.use(express.static(path.join(__dirname, '../e-commerce-vue/dist')))
 app.use(cors({ credentials: true, origin: true }));

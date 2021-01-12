@@ -8,7 +8,20 @@
         </div>
      </div> 
 
-      <form class="container" @submit.prevent="addArticle">
+      <div v-if="isConnected==false">
+        <div class="container">
+            <h1 class="title is-size-1">Vous devez vous connecter pour pouvoir mettre en vente un article</h1> 
+             <router-link :to="{name:'inscription'}" class="button is-danger mr-5">
+                  <strong>Inscription</strong>
+                </router-link>         
+             <router-link :to="{name:'connexion'}" class="button is-link mr-5">
+                  <strong>Connexion</strong>
+                </router-link>         
+            </div>
+      </div>
+
+
+      <form class="container" @submit.prevent="addArticle" v-else>
           <div class="field mt-6 cop">
             <label class="label">Nom de l'article</label>
             <div class="control">

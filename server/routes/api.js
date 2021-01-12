@@ -297,7 +297,7 @@ router.put('/panier/:articleId', (req, res) => {
     if (quantity <= 0 || isNaN(quantity)) {
         res.status(400).json({ message: 'La quantité du produit doit être un entier strictement positif ' })
     }
-    console.log("panier : " + req.session.panier)
+    console.log("panier : " + req.session.articles)
 
     const index = req.session.panier["articles"].find(element => element.id === id);
     if (index === undefined) {
