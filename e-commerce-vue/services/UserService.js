@@ -16,12 +16,12 @@ const instance = axios.create(
 
 export default {
     async getArticles() {
-        let res = await instance.get("https://hypetalk.netlify.app/api/articles");
+        let res = await instance.get("http://localhost:5000/api/articles");
         return res.data;
     },
 
     async getSneakers() {
-        let res = await instance.get("https://hypetalk.netlify.app/api/sneakers");
+        let res = await instance.get("http://localhost:5000/api/sneakers");
         return res.data;
     },
 
