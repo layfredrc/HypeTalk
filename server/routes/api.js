@@ -9,7 +9,7 @@ const articles = require('../data/articles.js')
 // ici la BDD s'apellera 'HypeTalk Clothing'
 const client = new Client({
     user: 'postgres',
-    host: 'localhost',
+    host: 'hypetalk.netlify.app',
     password: 'test',
     database: 'HypeTalk Clothing'
 })
