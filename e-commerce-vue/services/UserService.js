@@ -26,17 +26,17 @@ export default {
     },
 
     async getStreetwear() {
-        let res = await instance.get("https://hypetalk.netlify.app/api/streetwear");
+        let res = await instance.get("http://localhost:5000/api/streetwear");
         return res.data;
     },
 
     async getArticleSingle(articleId) {
-        let res = await instance.get("https://hypetalk.netlify.app/api/article/" + articleId);
+        let res = await instance.get("http://localhost:5000/api/article/" + articleId);
         return res.data;
     },
 
     async getPanier() {
-        let res = await instance.get("https://hypetalk.netlify.app/api/panier");
+        let res = await instance.get("http://localhost:5000/api/panier");
         return res.data;
     },
 

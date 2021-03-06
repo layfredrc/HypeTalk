@@ -60,12 +60,12 @@ export default{
 	// requêtes à effectuer vers l'API pour récupérer nos données 
 	// s'effectuent dès le montage du component
 	async mounted(){
-		let res = await axios.get("https://hypetalk.netlify.app/api/articles");
+		let res = await axios.get("http://localhost:5000/api/articles");
 		this.articles = res.data;
-		let res2 = await axios.get("https://hypetalk.netlify.app/api/panier");
+		let res2 = await axios.get("http://localhost:5000/api/panier");
 			this.panier = res2.data;
 		try{
-			const res3 = await axios.get('https://hypetalk.netlify.app/api/me')
+			const res3 = await axios.get('http://localhost:5000/api/me')
 			this.user = res3.data
 			this.isConnected = true
 		}catch(err){
@@ -81,7 +81,7 @@ export default{
 	methods:{
 		
 		async connexion(user){
-			const res =  await axios.post('https://hypetalk.netlify.app/api/connexion',user)
+			const res =  await axios.post('http://localhost:5000/api/connexion',user)
 			this.user = res.data
 			this.isConnected = true
 			this.$router.push('/')
@@ -91,13 +91,13 @@ export default{
 				this.panier.articles = new Array()
 			}
 			const newArticle = { id: articleId, quantity: 1 ,size: selectedSize}
-			const res = await axios.post('https://hypetalk.netlify.app/api/panier',newArticle)
+			const res = await axios.post('http://localhost:5000/api/panier',newArticle)
 			console.log(res)
 			this.panier.articles.push(newArticle)
 		},
 
 		async changeQuantity({ articleId, quantity }) {
-			const res = await axios.put('https://hypetalk.netlify.app/api/panier/' + articleId, { quantity })
+			const res = await axios.put('http://localhost:5000/api/panier/' + articleId, { quantity })
 			const article = this.panier.articles.find(a => a.id === articleId)
 			console.log(res)
 			console.log(article)
@@ -105,17 +105,17 @@ export default{
 		},
 
 		async removeFromPanier(articleId) {
-			await axios.delete('https://hypetalk.netlify.app/api/panier/' + articleId)
+			await axios.delete('http://localhost:5000/api/panier/' + articleId)
 			const index = this.panier.articles.findIndex(a => a.id === articleId)
 			this.panier.articles.splice(index, 1)
 		},
 		async pay() {
-			await axios.post('https://hypetalk.netlify.app/api/panier/pay')
+			await axios.post('http://localhost:5000/api/panier/pay')
 			this.panier.articles = []
 			this.$router.push('/')	
     },
 		async deleteArticle(articleId) {
-			await axios.delete('https://hypetalk.netlify.app/api/article/' + articleId)
+			await axios.delete('http://localhost:5000/api/article/' + articleId)
 			console.log(this.articles.length)
 			const index = this.articles.findIndex(a => a.id === articleId)
 			console.log(index)
@@ -123,12 +123,12 @@ export default{
 		},
 
 		async addArticle(article){
-			const res = await axios.post('https://hypetalk.netlify.app/api/article', article)
+			const res = await axios.post('http://localhost:5000/api/article', article)
 			this.articles.push(res.data)
 		},
 
 		async deconnexion(){
-			await axios.delete('https://hypetalk.netlify.app/api/deconnexion')
+			await axios.delete('http://localhost:5000/api/deconnexion')
 			this.isConnected = false
 		}
 	}
