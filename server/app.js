@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
 
     // Handle SPA
 
-    app.get(/.*/, (req, res => res.sendFime(__dirname + '/public/index.html')));
+    app.get('/.*/', (res => res.sendFime(__dirname + '/public/index.html')));
 }
 
 app.listen(port, () => console.log(`Server started on port ${port}`))

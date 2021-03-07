@@ -1,4 +1,4 @@
-const { path } = require("../server/app");
+const path = require("path");
 
 /**
  * Dans la phase de développement, l'application Vue s'exécute sur le port 8080 à l'aide d'une CLI Vue 
