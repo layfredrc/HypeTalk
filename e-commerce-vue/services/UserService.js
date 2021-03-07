@@ -16,27 +16,27 @@ const instance = axios.create(
 
 export default {
     async getArticles() {
-        let res = await instance.get("http://localhost:5000/api/articles");
+        let res = await instance.get("/api/articles");
         return res.data;
     },
 
     async getSneakers() {
-        let res = await instance.get("http://localhost:5000/api/sneakers");
+        let res = await instance.get("/api/sneakers");
         return res.data;
     },
 
     async getStreetwear() {
-        let res = await instance.get("http://localhost:5000/api/streetwear");
+        let res = await instance.get("/api/streetwear");
         return res.data;
     },
 
     async getArticleSingle(articleId) {
-        let res = await instance.get("http://localhost:5000/api/article/" + articleId);
+        let res = await instance.get("/api/article/" + articleId);
         return res.data;
     },
 
     async getPanier() {
-        let res = await instance.get("http://localhost:5000/api/panier");
+        let res = await instance.get("/api/panier");
         return res.data;
     },
 
