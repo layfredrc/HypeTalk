@@ -1,6 +1,6 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
-const { Client } = require('pg')
+const { Client, Pool } = require('pg')
 const router = express.Router()
 const articles = require('../data/articles.js')
 
@@ -12,6 +12,11 @@ const client = new Client({
     host: 'localhost',
     password: 'test',
     database: 'HypeTalk Clothing'
+})
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
 })
 
 client.connect()
