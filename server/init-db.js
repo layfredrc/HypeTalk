@@ -8,7 +8,7 @@ const { Client } = require('pg')
 */
 const client = new Client({
     user: 'postgres',
-    host: 'hypetalk.netlify.app',
+    host: 'localhost',
     password: 'test',
     database: 'HypeTalk Clothing'
 })
