@@ -22,6 +22,14 @@ app.use('/api/', apiRouter)
 // on lance le serveur sur le port 5000
 const port = process.env.PORT || 5000;
 
+if (process.env.NODE_ENV === "production") {
+    //static folder
+    app.use(express.static(__dirname + '/public/'));
+
+    // Handle SPA
+
+    app.get(/.*/, (req, res => res.sendFime(__dirname + '/public/index.html')));
+}
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
 
