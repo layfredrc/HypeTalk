@@ -1,3 +1,5 @@
+const { path } = require("../server/app");
+
 /**
  * Dans la phase de développement, l'application Vue s'exécute sur le port 8080 à l'aide d'une CLI Vue 
  * et d'une API nodejs s'exécutant sur le port 3080.
@@ -9,6 +11,7 @@
  * les chemins API appropriés.
  */
 module.exports = {
+    outputDir: path.resolve(__dirname, '../server/public'),
     devServer: {
         proxy: {
             '^/api': {
